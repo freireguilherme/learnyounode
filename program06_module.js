@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function (diretorio, extString, callback){
+module.exports = (diretorio, extString, callback) => {
 
     fs.readdir(diretorio, (err, lista) => {    // lê o diretorio
     
         if(err) return callback(err); // se erro, callback com o erro
     
-        lista = lista.filter(function (file){
+        lista = lista.filter((file) => {
             return path.extname(file) === '.' + extString;
         });
 
